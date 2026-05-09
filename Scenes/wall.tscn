@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b0vrpdro7k3de"]
+
+[ext_resource type="Texture2D" uid="uid://f2i4wbef2rhu" path="res://Sprites/platform.png" id="1_yjehn"]
+[ext_resource type="Script" uid="uid://d3oymt8oeaf6l" path="res://Scripts/border.gd" id="2_m8ojb"]
+
+[sub_resource type="Gradient" id="Gradient_s8bxr"]
+offsets = PackedFloat32Array(0, 0.018404908, 0.9877301, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.7631697, 0.36882824, 0.79439145, 1, 0.39141282, 0.5976726, 0.3908601, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c1gtx"]
+gradient = SubResource("Gradient_s8bxr")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ry5bi"]
+texture = ExtResource("1_yjehn")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6dsog"]
+tile_size = Vector2i(32, 32)
+sources/3 = SubResource("TileSetAtlasSource_ry5bi")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1gtx"]
+size = Vector2(1.7486013, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8bxr"]
+size = Vector2(1.5300322, 59)
+
+[node name="Wall" type="Node2D" unique_id=573641131]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1654687521]
+show_behind_parent = true
+position = Vector2(-211, -45.750004)
+scale = Vector2(0.04687505, 54.49999)
+texture = SubResource("GradientTexture1D_c1gtx")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1896462383]
+texture_filter = 1
+position = Vector2(-218.00002, 26.000004)
+rotation = 1.5707964
+scale = Vector2(0.45, 0.45)
+tile_map_data = PackedByteArray(0, 0, 249, 255, 255, 255, 3, 0, 0, 0, 0, 0, 0, 0, 250, 255, 255, 255, 3, 0, 0, 0, 1, 0, 0, 0, 251, 255, 255, 255, 3, 0, 0, 0, 1, 0, 0, 0, 252, 255, 255, 255, 3, 0, 1, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_6dsog")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=462597114]
+scale = Vector2(9.150163, 1)
+script = ExtResource("2_m8ojb")
+metadata/_edit_lock_ = true
+
+[node name="Wallarea" type="Area2D" parent="StaticBody2D" unique_id=502337006]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D/Wallarea" unique_id=160280610]
+position = Vector2(-23.059696, -46)
+shape = SubResource("RectangleShape2D_c1gtx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1810972499]
+position = Vector2(-23.059696, -46.5)
+shape = SubResource("RectangleShape2D_s8bxr")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="StaticBody2D/Wallarea" to="StaticBody2D" method="_on_wallarea_body_entered"]

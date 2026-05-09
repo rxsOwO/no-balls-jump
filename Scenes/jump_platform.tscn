@@ -1,0 +1,74 @@
+[gd_scene format=4 uid="uid://b8xamr502rnxf"]
+
+[ext_resource type="Texture2D" uid="uid://f2i4wbef2rhu" path="res://Sprites/platform.png" id="1_j115f"]
+[ext_resource type="Script" uid="uid://d3oymt8oeaf6l" path="res://Scripts/border.gd" id="2_3y66b"]
+[ext_resource type="Script" uid="uid://ipl0sb4uqfwk" path="res://Scenes/jump_platform.gd" id="3_3y66b"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ry5bi"]
+texture = ExtResource("1_j115f")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6dsog"]
+tile_size = Vector2i(32, 32)
+sources/3 = SubResource("TileSetAtlasSource_ry5bi")
+
+[sub_resource type="Gradient" id="Gradient_s8bxr"]
+offsets = PackedFloat32Array(0, 0.018404908, 0.9877301, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.5647059, 1, 0, 1, 0, 0.60594344, 0.31325367, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c1gtx"]
+gradient = SubResource("Gradient_s8bxr")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1gtx"]
+size = Vector2(37.813538, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8bxr"]
+size = Vector2(37.157806, 14)
+
+[node name="JumpPlatform" type="Node2D" unique_id=573641131]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1896462383]
+texture_filter = 1
+position = Vector2(2.26, -16.125)
+scale = Vector2(0.45, 0.45)
+tile_map_data = PackedByteArray("AAD0////AwAAAAEAAAD1////AwAAAAEAAAD2////AwAAAAEAAAD3////AwAAAAEAAAD4////AwAAAAEAAAD5////AwAAAAEAAAD6////AwAAAAEAAAD7////AwAAAAEAAAD8////AwABAAAAAADl////AwAAAAAAAADm////AwAAAAEAAADn////AwAAAAEAAADo////AwAAAAEAAADp////AwAAAAEAAADq////AwAAAAEAAADr////AwAAAAEAAADs////AwAAAAEAAADt////AwAAAAEAAADu////AwAAAAEAAADv////AwAAAAEAAADw////AwAAAAEAAADx////AwAAAAEAAADy////AwAAAAEAAADz////AwAAAAEAAAA=")
+tile_set = SubResource("TileSet_6dsog")
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer" unique_id=1654687521]
+show_behind_parent = true
+position = Vector2(-480.57776, -15.277781)
+scale = Vector2(2.9861114, 26.666668)
+texture = SubResource("GradientTexture1D_c1gtx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=462597114]
+scale = Vector2(9.150163, 1)
+script = ExtResource("2_3y66b")
+metadata/_edit_lock_ = true
+
+[node name="jump_platformarea" type="Area2D" parent="StaticBody2D" unique_id=502337006]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D/jump_platformarea" unique_id=160280610]
+position = Vector2(-23.387562, -22.5)
+shape = SubResource("RectangleShape2D_c1gtx")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1810972499]
+position = Vector2(-23.387554, -23.75)
+shape = SubResource("RectangleShape2D_s8bxr")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1045269773]
+script = ExtResource("3_3y66b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=867669076]
+position = Vector2(-213.99992, -25)
+scale = Vector2(9.150163, 1)
+shape = SubResource("RectangleShape2D_s8bxr")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="StaticBody2D/jump_platformarea" to="StaticBody2D" method="_on_platformarea_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

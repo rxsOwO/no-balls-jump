@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://drqn40o0hn2u6"]
+
+[ext_resource type="Script" uid="uid://d3oymt8oeaf6l" path="res://Scripts/border.gd" id="1_8ryga"]
+[ext_resource type="Texture2D" uid="uid://coudlvpi31eyh" path="res://Sprites/spike.png" id="2_7k7bx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1gtx"]
+size = Vector2(12, 16.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8bxr"]
+size = Vector2(7.7894516, 11.5)
+
+[node name="Spike" type="Node2D" unique_id=573641131]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=462597114]
+script = ExtResource("1_8ryga")
+
+[node name="spike" type="Area2D" parent="StaticBody2D" unique_id=502337006]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D/spike" unique_id=160280610]
+position = Vector2(-1, 7)
+shape = SubResource("RectangleShape2D_c1gtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1810972499]
+visible = false
+position = Vector2(-1, 8)
+shape = SubResource("RectangleShape2D_s8bxr")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=357213501]
+physics_interpolation_mode = 2
+texture_filter = 1
+texture = ExtResource("2_7k7bx")
+
+[connection signal="body_entered" from="StaticBody2D/spike" to="StaticBody2D" method="_on_spike_body_entered"]

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cd5mw4acgd6vr"]
+
+[ext_resource type="Script" uid="uid://dff2r5lllmslk" path="res://Scenes/ui.gd" id="1_nxvpl"]
+[ext_resource type="FontFile" uid="uid://cqdn458w6m0py" path="res://Pixeboy.ttf" id="1_w371h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nxvpl"]
+font = ExtResource("1_w371h")
+font_size = 84
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Ui" type="Control" unique_id=480034521 groups=["UI"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nxvpl")
+
+[node name="Jumps" type="Label" parent="." unique_id=259933985]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -129.0
+offset_right = 132.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Jumps: 0"
+label_settings = SubResource("LabelSettings_nxvpl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Deaths" type="Label" parent="." unique_id=594590076]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -63.0
+offset_right = 133.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "DEATHS: 0"
+label_settings = SubResource("LabelSettings_nxvpl")
+horizontal_alignment = 1
+vertical_alignment = 1
