@@ -63,6 +63,7 @@ metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1045269773]
 script = ExtResource("3_3y66b")
+jumpPadHeight = -950
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=867669076]
 position = Vector2(-213.99992, -25)
