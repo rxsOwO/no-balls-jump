@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dff2r5lllmslk" path="res://Scenes/ui.gd" id="1_nxvpl"]
 [ext_resource type="FontFile" uid="uid://cqdn458w6m0py" path="res://Pixeboy.ttf" id="1_w371h"]
+[ext_resource type="PackedScene" uid="uid://b51ayhtw13kkj" path="res://Scenes/PauseMenu.tscn" id="3_dewlx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nxvpl"]
 font = ExtResource("1_w371h")
@@ -55,3 +56,6 @@ text = "DEATHS: 0"
 label_settings = SubResource("LabelSettings_nxvpl")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PauseMenu" parent="." unique_id=1432869985 instance=ExtResource("3_dewlx")]
+layout_mode = 1
