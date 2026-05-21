@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bxmgiooe6w1ol"]
 
 [ext_resource type="Script" uid="uid://d3oymt8oeaf6l" path="res://Scripts/border.gd" id="1_oi3di"]
+[ext_resource type="AudioStream" uid="uid://btpmihx80eleh" path="res://Sounds/cool2.mp3" id="1_qxfql"]
 [ext_resource type="PackedScene" uid="uid://cd5mw4acgd6vr" path="res://Scenes/UI.tscn" id="2_bvt00"]
 [ext_resource type="PackedScene" uid="uid://cb1fjb55ubt06" path="res://Scenes/player.tscn" id="2_vonw3"]
 [ext_resource type="PackedScene" uid="uid://dv7mh3oxv3uju" path="res://Scenes/platform.tscn" id="4_0b4ue"]
@@ -56,6 +57,10 @@ sources/0 = SubResource("TileSetAtlasSource_i2t4f")
 sources/1 = SubResource("TileSetAtlasSource_8cye3")
 
 [node name="Level" type="Node2D" unique_id=2087885321]
+
+[node name="music" type="AudioStreamPlayer" parent="." unique_id=809261637]
+stream = ExtResource("1_qxfql")
+autoplay = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1365177105]
 environment = SubResource("Environment_n6hdu")

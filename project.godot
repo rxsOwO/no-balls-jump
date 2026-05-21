@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="seniorservice"
-run/main_scene="uid://bxmgiooe6w1ol"
+run/main_scene="uid://cr6o0y8xtf24n"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://cmds072m3qfdq"
 
 [autoload]
 
