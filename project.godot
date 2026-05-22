@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="seniorservice"
+config/name="No Balls? Jump!"
 run/main_scene="uid://cr6o0y8xtf24n"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.9792246, 0, 0.15477034, 1)
+boot_splash/image="uid://ck3wga87lwteg"
+config/icon="uid://brgrrl855u328"
 
 [audio]
 

@@ -1,9 +1,12 @@
 [gd_scene format=4 uid="uid://bxmgiooe6w1ol"]
 
+[ext_resource type="Texture2D" uid="uid://cyohwr63gt43j" path="res://Sprites/billy.png" id="1_crh0w"]
 [ext_resource type="Script" uid="uid://d3oymt8oeaf6l" path="res://Scripts/border.gd" id="1_oi3di"]
 [ext_resource type="AudioStream" uid="uid://btpmihx80eleh" path="res://Sounds/cool2.mp3" id="1_qxfql"]
 [ext_resource type="PackedScene" uid="uid://cd5mw4acgd6vr" path="res://Scenes/UI.tscn" id="2_bvt00"]
+[ext_resource type="Script" uid="uid://dfom5hjrq71i8" path="res://Scenes/win.gd" id="2_c7le1"]
 [ext_resource type="PackedScene" uid="uid://cb1fjb55ubt06" path="res://Scenes/player.tscn" id="2_vonw3"]
+[ext_resource type="FontFile" uid="uid://cqdn458w6m0py" path="res://Pixeboy.ttf" id="3_2klc5"]
 [ext_resource type="PackedScene" uid="uid://dv7mh3oxv3uju" path="res://Scenes/platform.tscn" id="4_0b4ue"]
 [ext_resource type="PackedScene" uid="uid://drqn40o0hn2u6" path="res://Scenes/spike.tscn" id="5_f2txt"]
 [ext_resource type="Texture2D" uid="uid://dupcpjbpcw138" path="res://Sprites/dirt.png" id="6_n6hdu"]
@@ -11,6 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://cw7nx2sk20aee" path="res://Scenes/double_spike.tscn" id="8_km5ld"]
 [ext_resource type="PackedScene" uid="uid://b0vrpdro7k3de" path="res://Scenes/wall.tscn" id="9_bvt00"]
 [ext_resource type="PackedScene" uid="uid://b8xamr502rnxf" path="res://Scenes/jump_platform.tscn" id="10_oqgf2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nngtn"]
+size = Vector2(54, 41)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vofx3"]
+font = ExtResource("3_2klc5")
+font_size = 42
+font_color = Color(1, 0.46666667, 0, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Environment" id="Environment_n6hdu"]
 background_mode = 3
@@ -58,6 +71,27 @@ sources/1 = SubResource("TileSetAtlasSource_8cye3")
 
 [node name="Level" type="Node2D" unique_id=2087885321]
 
+[node name="Billy" type="Sprite2D" parent="." unique_id=1461337895]
+texture_filter = 1
+position = Vector2(-38.5, -4805.5)
+scale = Vector2(1.40625, 1.3437524)
+texture = ExtResource("1_crh0w")
+script = ExtResource("2_c7le1")
+
+[node name="Area2D" type="Area2D" parent="Billy" unique_id=767159009]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Billy/Area2D" unique_id=909537268]
+position = Vector2(0.3555554, -0.3720932)
+shape = SubResource("RectangleShape2D_nngtn")
+
+[node name="Label" type="Label" parent="Billy" unique_id=20859027]
+offset_left = -27.0
+offset_top = -64.0
+offset_right = 78.0
+offset_bottom = -39.0
+text = "SAMUEL!"
+label_settings = SubResource("LabelSettings_vofx3")
+
 [node name="music" type="AudioStreamPlayer" parent="." unique_id=809261637]
 stream = ExtResource("1_qxfql")
 autoplay = true
@@ -66,7 +100,7 @@ autoplay = true
 environment = SubResource("Environment_n6hdu")
 
 [node name="Player" parent="." unique_id=987581175 instance=ExtResource("2_vonw3")]
-position = Vector2(-549.9999, -658)
+position = Vector2(30, 27)
 scale = Vector2(1.7754782, 1.6742703)
 
 [node name="LevelFeatures" type="Node2D" parent="." unique_id=239627660]
@@ -510,5 +544,6 @@ position = Vector2(646, -4071)
 [node name="Wall6" parent="." unique_id=717102984 instance=ExtResource("9_bvt00")]
 position = Vector2(-169, -4142)
 
+[connection signal="body_entered" from="Billy/Area2D" to="Billy" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="LevelFeatures/StaticBody2D2/Area2DLeft" to="LevelFeatures/StaticBody2D2" method="_on_area_2d_left_body_entered"]
 [connection signal="body_entered" from="LevelFeatures/StaticBody2D2/Area2DRight" to="LevelFeatures/StaticBody2D2" method="_on_area_2d_right_body_entered"]
