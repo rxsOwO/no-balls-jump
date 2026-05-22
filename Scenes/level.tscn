@@ -66,7 +66,7 @@ autoplay = true
 environment = SubResource("Environment_n6hdu")
 
 [node name="Player" parent="." unique_id=987581175 instance=ExtResource("2_vonw3")]
-position = Vector2(2.0000076, 51)
+position = Vector2(3.0517578e-05, 42)
 scale = Vector2(1.7754782, 1.6742703)
 
 [node name="LevelFeatures" type="Node2D" parent="." unique_id=239627660]
@@ -398,10 +398,6 @@ scale = Vector2(0.2765419, 0.59335494)
 position = Vector2(-84.000015, -2302)
 scale = Vector2(0.2765419, 0.59335494)
 
-[node name="JumpPlatform9" parent="." unique_id=1750178075 instance=ExtResource("10_oqgf2")]
-position = Vector2(95.999985, -2098)
-scale = Vector2(0.2765419, 0.59335494)
-
 [node name="Platform27" parent="." unique_id=1453536447 instance=ExtResource("4_0b4ue")]
 position = Vector2(609, -2182)
 
@@ -431,6 +427,10 @@ scale = Vector2(0.5583162, 0.7276828)
 
 [node name="Platform34" parent="." unique_id=1907171446 instance=ExtResource("4_0b4ue")]
 position = Vector2(-392, -3078)
+scale = Vector2(0.48376453, 0.5860489)
+
+[node name="Platform52" parent="." unique_id=259098894 instance=ExtResource("4_0b4ue")]
+position = Vector2(139.00006, -2119)
 scale = Vector2(0.48376453, 0.5860489)
 
 [node name="DoubleSpike12" parent="." unique_id=330908595 instance=ExtResource("8_km5ld")]
