@@ -66,7 +66,7 @@ autoplay = true
 environment = SubResource("Environment_n6hdu")
 
 [node name="Player" parent="." unique_id=987581175 instance=ExtResource("2_vonw3")]
-position = Vector2(295.99994, -4688)
+position = Vector2(2.0000076, 51)
 scale = Vector2(1.7754782, 1.6742703)
 
 [node name="LevelFeatures" type="Node2D" parent="." unique_id=239627660]
