@@ -143,7 +143,7 @@ scale = Vector2(0.78824216, 0.8554198)
 position = Vector2(0, -248)
 
 [node name="JumpPlatform" parent="." unique_id=517922716 instance=ExtResource("10_oqgf2")]
-position = Vector2(308, -293.00003)
+position = Vector2(308, -294.00003)
 scale = Vector2(0.13891749, 0.6195039)
 
 [node name="JumpPlatform3" parent="." unique_id=1910348750 instance=ExtResource("10_oqgf2")]
@@ -151,7 +151,7 @@ position = Vector2(29, -422)
 scale = Vector2(0.13891749, 0.6195039)
 
 [node name="JumpPlatform2" parent="." unique_id=719023075 instance=ExtResource("10_oqgf2")]
-position = Vector2(-244.00002, -290)
+position = Vector2(-245.00002, -291.00003)
 scale = Vector2(0.13891749, 0.6195039)
 
 [node name="Wall" parent="." unique_id=130915004 instance=ExtResource("9_bvt00")]
